@@ -1,3 +1,11 @@
+# 1.0.0-beta.2 — 2026-11-16
+
+- Include the macOS microphone permission description for standalone audio input.
+- Reject release packaging when the required microphone description is missing.
+- Repair Linux/MSVC test compilation and separate TSan runtime allocators from
+  the heap probe; migrate retired macOS CI runners and preserve notice bytes.
+- Supersede beta.1 as the recommended curl download. Audio/DSP behavior is unchanged.
+
 # 1.0.0-beta.1 — 2026-11-16
 
 - First official public testing release: universal macOS standalone, VST3 and AU.

@@ -6,6 +6,7 @@ import hashlib
 import io
 import json
 import pathlib
+import plistlib
 import re
 import subprocess
 import tarfile
@@ -69,6 +70,10 @@ def main():
                (('Standalone', 'SYS 01.app'), ('VST3', 'SYS 01.vst3'), ('AU', 'SYS 01.component'))]
     binary_manifest = {}
     for bundle in bundles:
+        if bundle.suffix == '.app':
+            info = plistlib.loads((bundle / 'Contents/Info.plist').read_bytes())
+            if not info.get('NSMicrophoneUsageDescription', '').strip():
+                parser.error('Standalone app is missing its macOS microphone usage description')
         subprocess.run(['codesign', '--verify', '--deep', '--strict', str(bundle)], check=True)
         executable = bundle / 'Contents/MacOS/SYS 01'
         architectures = run('lipo', '-archs', str(executable)).split()

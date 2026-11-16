@@ -68,7 +68,7 @@ python3 scripts/test_macos_installer.py dist/public-beta
 
 The installer tests use disposable prefixes only, including a real partial
 update failure and rollback. Release notes are in
-`release/notes-v1.0.0-beta.1.md`. For another project, adapt the versioned asset
+`release/notes-v1.0.0-beta.2.md`. For another project, adapt the versioned asset
 URL, identifiers, bundle paths and release metadata; keep checksum/signature
 verification and rollback. [The installation guide](../docs/install.md) explains
 the macOS quarantine behavior and its limits.

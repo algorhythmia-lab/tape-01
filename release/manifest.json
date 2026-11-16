@@ -48,7 +48,7 @@
   },
   "windows_packaging_route": "ZIP with VST3, notices/source and PowerShell install/rollback scripts; Authenticode when authorized credentials are available; clean-system qualification pending",
   "public_release": {
-    "tag": "v1.0.0-beta.1",
+    "tag": "v1.0.0-beta.2",
     "date": "2026-11-16",
     "scope": "public testing; no production qualification waiver",
     "details": "public-beta.json"

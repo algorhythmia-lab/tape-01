@@ -1,6 +1,6 @@
 # Install SYS 01
 
-The first public release is **v1.0.0-beta.1**, a free macOS testing build with a
+The first public release is **v1.0.0-beta.2**, a free macOS testing build with a
 standalone app, VST3 and Audio Unit. It contains both Apple silicon and Intel
 code, targets macOS 12+, and is not yet production-qualified. Intel code is
 tested through Rosetta locally; native Intel and older OS testing remain open.
@@ -13,7 +13,7 @@ Close SYS 01 and your DAW before installing or updating. Paste this in Terminal:
 ```sh
 sys01_tmp="$(mktemp -d)" &&
 curl --fail --location --proto '=https' --tlsv1.2 \
-  https://github.com/algorhythmia-lab/tape-01/releases/download/v1.0.0-beta.1/install-macos.sh \
+  https://github.com/algorhythmia-lab/tape-01/releases/download/v1.0.0-beta.2/install-macos.sh \
   --output "$sys01_tmp/install-macos.sh" &&
 /bin/bash "$sys01_tmp/install-macos.sh"
 ```
@@ -59,7 +59,7 @@ References: [Apple: Resolving Trusted Execution Problems](https://developer.appl
 
 ## Manual download and removal
 
-The [GitHub release](https://github.com/algorhythmia-lab/tape-01/releases/tag/v1.0.0-beta.1)
+The [GitHub release](https://github.com/algorhythmia-lab/tape-01/releases/tag/v1.0.0-beta.2)
 also contains the archive, corresponding source, manifest and `SHA256SUMS.txt`.
 The default Terminal route above is recommended for this unnotarized beta.
 If you download in a browser and macOS blocks opening the app, follow
@@ -76,6 +76,8 @@ Lower monitoring volume. Open the app, select **01 / magnetic pulse**, enable
 DRIVE/RUN, and move FLUX and BIAS. Generators work without input; a DAW may need
 an active audio track to process a generator effect. **03 / forward tape** needs
 stereo input, RUN enabled, BRAKE released and FLUX around .75 for forward tape.
+macOS may ask permission to use audio input when the standalone app opens.
+Allow it to process live input in transform; this is separate from Gatekeeper.
 Read the [musical guide](musical-guide.md) for the controls and recall behavior.
 
 [Report a bug](https://github.com/algorhythmia-lab/tape-01/issues/new/choose)

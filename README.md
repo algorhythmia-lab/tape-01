@@ -4,7 +4,7 @@ A free cassette-shaped instrument and stereo effect from algorhythmia.
 Three deterministic sound domains: **magnetic bytebeat**, **cellular FM**, and
 **live tape displacement**.
 
-**First public beta: v1.0.0-beta.1 · macOS 12+ · Apple silicon + Intel**
+**First public beta: v1.0.0-beta.2 · macOS 12+ · Apple silicon + Intel**
 
 ## Download and test
 
@@ -14,7 +14,7 @@ your DAW, then paste this in Terminal:
 ```sh
 sys01_tmp="$(mktemp -d)" &&
 curl --fail --location --proto '=https' --tlsv1.2 \
-  https://github.com/algorhythmia-lab/tape-01/releases/download/v1.0.0-beta.1/install-macos.sh \
+  https://github.com/algorhythmia-lab/tape-01/releases/download/v1.0.0-beta.2/install-macos.sh \
   --output "$sys01_tmp/install-macos.sh" &&
 /bin/bash "$sys01_tmp/install-macos.sh"
 ```
@@ -23,7 +23,7 @@ The installer verifies the archive's pinned SHA-256 and bundle signatures, then
 installs into your user Applications and Audio Plug-Ins folders. No `sudo` is
 required. Add `--dry-run` to the last line to verify without installing.
 
-[All downloads and release notes](https://github.com/algorhythmia-lab/tape-01/releases/tag/v1.0.0-beta.1)
+[All downloads and release notes](https://github.com/algorhythmia-lab/tape-01/releases/tag/v1.0.0-beta.2)
 · [Installation, removal and how curl helps](docs/install.md)
 · [Report a problem](https://github.com/algorhythmia-lab/tape-01/issues/new/choose)
 
@@ -54,7 +54,7 @@ accessibility, musician acceptance and long soaks remain unqualified. An extreme
 transform setting has a recorded DC-offset issue; keep monitoring low and avoid
 high output gain. See [the release scope](release/public-beta.json) and
 [qualification record](release/manifest.json). The code reports base version
-`1.0.0`; use the full release tag `v1.0.0-beta.1` when reporting an issue.
+`1.0.0`; use the full release tag `v1.0.0-beta.2` when reporting an issue.
 
 Windows, Max for Live and hardware binaries are not part of this beta. Their
 source adapters remain in the repository for development.
