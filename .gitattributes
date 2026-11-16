@@ -1,0 +1,4 @@
+# Keep scripts and source stable on Windows. Retained notices keep upstream bytes.
+* text eol=lf
+licenses/** -text
+*.ttf binary

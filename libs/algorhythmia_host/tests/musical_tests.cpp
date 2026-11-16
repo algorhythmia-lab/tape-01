@@ -149,7 +149,7 @@ std::vector<Study> studies() {
     for (unsigned i = 0; i < presets.size(); ++i) {
         result.push_back({"factory-" + std::to_string(i), presets[i].state, i == 3, false, 11, {}});
         Study recall{"recall-" + std::to_string(i), presets[i].state, i == 3, false, 11, {}};
-        for (const auto [second, program] :
+        for (const auto& [second, program] :
              {std::pair{5U, static_cast<int>(i)}, {7U, 0}, {8U, static_cast<int>(i)}})
             recall.changes.push_back({second, {}, program});
         result.push_back(recall);

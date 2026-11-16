@@ -13,6 +13,11 @@ add_test(NAME dsp_unit_tests COMMAND algorhythmia_dsp_tests)
 add_executable(algorhythmia_realtime_tests realtime_tests.cpp)
 target_link_libraries(algorhythmia_realtime_tests PRIVATE algorhythmia::host Threads::Threads)
 algorhythmia_target_defaults(algorhythmia_realtime_tests)
+if(ALGORHYTHMIA_ENABLE_TSAN)
+    # TSan owns global new/delete; keep its concurrency run separate from the
+    # allocation hooks exercised by ordinary and ASan builds.
+    target_compile_definitions(algorhythmia_realtime_tests PRIVATE SYS01_TSAN=1)
+endif()
 add_test(NAME dsp_realtime_tests COMMAND algorhythmia_realtime_tests)
 set_tests_properties(dsp_unit_tests dsp_realtime_tests PROPERTIES TIMEOUT 60)
 

@@ -3,6 +3,7 @@
 
 #include <doctest/doctest.h>
 #include <limits>
+#include <ostream>
 #include <vector>
 using namespace algorhythmia::host;
 

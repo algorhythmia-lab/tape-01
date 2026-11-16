@@ -16,7 +16,7 @@ import json
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 ROOT_FILES = (
-    "CMakeLists.txt", "CMakePresets.json", "VERSION", "README.md", "CHANGELOG.md", ".clang-format", ".clang-tidy", ".gitignore",
+    "CMakeLists.txt", "CMakePresets.json", "VERSION", "README.md", "CHANGELOG.md", ".clang-format", ".clang-tidy", ".gitattributes", ".gitignore",
     "LICENSE", "LICENSE.md", "LICENSE.txt", "COPYING", "NOTICE",
 )
 SOURCE_TREES = (

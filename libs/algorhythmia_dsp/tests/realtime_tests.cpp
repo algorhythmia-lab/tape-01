@@ -21,6 +21,7 @@ namespace {
 // This executable is separate from doctest so its allocation hooks do not count
 // assertion/reporting allocations. malloc/free are not interposed: Unix CTest
 // also checks the DSP archive for direct references to runtime allocators.
+#if !defined(SYS01_TSAN)
 std::atomic<bool> allocationProbeArmed{false};
 std::atomic<std::size_t> allocationCount{0};
 std::atomic<std::size_t> deallocationCount{0};
@@ -75,6 +76,7 @@ void deallocateAligned(void* pointer) noexcept {
     std::free(pointer);
 #endif
 }
+#endif
 
 [[nodiscard]] bool validSample(float sample) noexcept {
     return std::isfinite(sample) && std::fpclassify(sample) != FP_SUBNORMAL;
@@ -82,6 +84,7 @@ void deallocateAligned(void* pointer) noexcept {
 
 } // namespace
 
+#if !defined(SYS01_TSAN)
 void* operator new(std::size_t bytes) {
     return allocate(bytes);
 }
@@ -151,6 +154,7 @@ void operator delete(void* pointer, std::align_val_t, const std::nothrow_t&) noe
 void operator delete[](void* pointer, std::align_val_t, const std::nothrow_t&) noexcept {
     deallocateAligned(pointer);
 }
+#endif
 
 int main() {
     using algorhythmia::Engine;
@@ -168,7 +172,9 @@ int main() {
 
     // Only the core operations execute while the hook is armed. This includes
     // reset and pending control changes as well as the hot rendering loop.
+#if !defined(SYS01_TSAN)
     allocationProbeArmed.store(true, std::memory_order_relaxed);
+#endif
     engine.init(48'000.0F);
     engine.setParameter(ParameterId::Drive, 1.0F);
     for (std::uint32_t block = 0; block < 4000; ++block) {
@@ -200,12 +206,14 @@ int main() {
         if (block % 100 == 0)
             static_cast<void>(desktop.restore(algorhythmia::host::presets[block % 3 + 1].state));
     }
+#if !defined(SYS01_TSAN)
     allocationProbeArmed.store(false, std::memory_order_relaxed);
     if (allocationCount.load() != 0 || deallocationCount.load() != 0) {
         std::fprintf(stderr, "DSP performed %zu allocations and %zu deallocations\n",
                      allocationCount.load(), deallocationCount.load());
         return EXIT_FAILURE;
     }
+#endif
 
     engine.init(48'000.0F);
     engine.setParameter(ParameterId::Drive, 1.0F);
@@ -248,6 +256,10 @@ int main() {
         std::fputs("Concurrent controls produced nonfinite or subnormal output\n", stderr);
         return EXIT_FAILURE;
     }
+#if defined(SYS01_TSAN)
+    std::puts("TSan concurrent control stress passed; heap probe runs in ordinary builds.");
+#else
     std::puts("Realtime checks passed: no C++ heap traffic; concurrent control stress passed.");
+#endif
     return EXIT_SUCCESS;
 }
