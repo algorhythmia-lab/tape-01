@@ -266,8 +266,10 @@ endforeach()
 # manifest. This is local ad-hoc integrity, not release signing.
 if(APPLE)
     foreach(format VST3 AU Standalone)
-        # Resource-only edits must relink so POST_BUILD reseals the bundle.
+        # Resource and generated-plist edits must relink so POST_BUILD reseals.
+        get_target_property(sys01_bundle_plist sys01_${format} MACOSX_BUNDLE_INFO_PLIST)
         set_property(TARGET sys01_${format} APPEND PROPERTY LINK_DEPENDS
+            "${sys01_bundle_plist}"
             "${CMAKE_CURRENT_SOURCE_DIR}/assets/sys01-icon.svg"
             "${CMAKE_CURRENT_SOURCE_DIR}/assets/sys01-icon-small.svg")
         add_custom_command(TARGET sys01_${format} POST_BUILD
