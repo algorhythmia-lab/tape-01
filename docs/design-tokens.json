@@ -1,0 +1,189 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "system": "algorhythmia-design-system",
+  "version": "1.2.0",
+  "description": "machine-readable design tokens and brand constraints for algorhythmia.",
+  "brand": {
+    "name": "algorhythmia",
+    "case_rule": "binary_case_law",
+    "case_rule_specification": "every word must be either all lowercase or ALL UPPERCASE. never mix both in the same word.",
+    "tagline": "tangible algorithms // open musical instruments",
+    "mood": "sober corporative goth x 90s cyberpunk avionics x ergonomic minimalism",
+    "aesthetic_formula": "SOBER CORPORATE GOTH * ERGONOMIC MINIMALISM * 90s CYBERPUNK AVIONICS",
+    "influences": [
+      "apple (industrial fit, finish, unboxing discipline)",
+      "teenage engineering (mechanical honesty, compact form, 1:1 tactile directness)",
+      "ghost in the shell (forensic opto-electronics, section 9 clandestine tech, dense pcb schematics)",
+      "cowboy bebop (cockpit avionics, analog clunk, warm crt scanline noir)",
+      "evangelion (nerv tactical telemetry, monospace warnings, cadmium alert flags)",
+      "akira (capsule industrialism, heavy stenciling, cryogenic laboratory hardware)"
+    ]
+  },
+  "chromatic_distribution": {
+    "substrate_void_percent": 85,
+    "structural_neutrals_percent": 10,
+    "telemetry_accents_percent": 5,
+    "rule": "telemetry accents must be used strictly for functional status, clock, and clip; never as decorative backgrounds."
+  },
+  "colors": {
+    "substrate": {
+      "obsidian_void": {
+        "hex": "#08090A",
+        "rgb": "rgb(8, 9, 10)",
+        "role": "primary application background, deepest obsidian canvas"
+      },
+      "basalt_surface": {
+        "hex": "#121417",
+        "rgb": "rgb(18, 20, 23)",
+        "role": "secondary surface, card backgrounds, recessed bays, chassis body"
+      },
+      "carbon_raised": {
+        "hex": "#1A1D20",
+        "rgb": "rgb(26, 29, 32)",
+        "role": "elevated components, hover states, rotary dial bodies, button caps"
+      },
+      "graphite_border": {
+        "hex": "#2A2F35",
+        "rgb": "rgb(42, 47, 53)",
+        "role": "hairline structural borders, 1px dividers, gridlines"
+      },
+      "forensic_slate": {
+        "hex": "#4B535D",
+        "rgb": "rgb(75, 83, 93)",
+        "role": "muted metadata, inactive labels, pcb ground plane fill"
+      }
+    },
+    "neutrals": {
+      "titanium_mist": {
+        "hex": "#8E96A0",
+        "rgb": "rgb(142, 150, 160)",
+        "role": "secondary typography, parameter units, inactive icons"
+      },
+      "monolith_grey": {
+        "hex": "#B8BDC3",
+        "rgb": "rgb(184, 189, 195)",
+        "role": "active control symbols, intermediate typography"
+      },
+      "bone_chalk": {
+        "hex": "#E2E4DE",
+        "rgb": "rgb(226, 228, 222)",
+        "role": "primary typography, silkscreen white, active indicators"
+      },
+      "pure_bone": {
+        "hex": "#F5F7F2",
+        "rgb": "rgb(245, 247, 242)",
+        "role": "high-contrast tactical headings, warning highlights"
+      }
+    },
+    "telemetry": {
+      "nerv_orange": {
+        "hex": "#FF5500",
+        "rgb": "rgb(255, 85, 0)",
+        "role": "instability warning, uncommitted buffer, parameter threshold alert"
+      },
+      "phosphor_green": {
+        "hex": "#00FF66",
+        "rgb": "rgb(0, 255, 102)",
+        "role": "clock synchronization, dsp locked, nominal running state"
+      },
+      "bebop_amber": {
+        "hex": "#FFB000",
+        "rgb": "rgb(255, 176, 0)",
+        "role": "standby mode, usb charging in progress, soft saturation indicator"
+      },
+      "akira_red": {
+        "hex": "#D80027",
+        "rgb": "rgb(216, 0, 39)",
+        "role": "hard clipping limit, battery critical, emergency mute, write protect"
+      },
+      "optic_cyan": {
+        "hex": "#54E5FF",
+        "rgb": "rgb(84, 229, 255)",
+        "role": "usb data activity, midi serial clock, host communication"
+      }
+    }
+  },
+  "typography": {
+    "fonts": {
+      "display": {
+        "name": "DIN PRO CONDENSED",
+        "fallback": "DIN CONDENSED, 'ARIAL NARROW', 'BARLOW CONDENSED', SANS-SERIF",
+        "tracking": "0.10em",
+        "transform": "UPPERCASE",
+        "role": "tactical headings, product identifiers, classification headers"
+      },
+      "body": {
+        "name": "neue haas grotesk text",
+        "fallback": "inter, -apple-system, blinkmacsystemfont, 'segoe ui', roboto, sans-serif",
+        "line_height": "1.6",
+        "role": "editorial text, manual paragraphs, website copy"
+      },
+      "mono": {
+        "name": "jetbrains mono",
+        "fallback": "'jetbrains mono', 'ibm plex mono', 'sf mono', menlo, consolas, monospace",
+        "features": "tnum, zero",
+        "role": "telemetry readouts, firmware parameters, code, memory maps, serial numbers"
+      }
+    },
+    "scale": {
+      "micro": "0.6875rem",
+      "xs": "0.75rem",
+      "sm": "0.875rem",
+      "base": "1.000rem",
+      "lg": "1.125rem",
+      "xl": "1.250rem",
+      "2xl": "1.500rem",
+      "3xl": "1.875rem",
+      "4xl": "2.500rem"
+    }
+  },
+  "geometry_and_elevation": {
+    "border_width": "1px",
+    "border_style": "solid",
+    "border_color": "#2A2F35",
+    "radius_none": "0px",
+    "radius_sharp": "2px",
+    "radius_pill": "9999px",
+    "box_shadow": "none",
+    "elevation_method": "planar contrast and 1px hairline dividers; no blur or drop shadows"
+  },
+  "motion": {
+    "easing": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "duration_instant_ms": 60,
+    "duration_snappy_ms": 120,
+    "duration_smooth_ms": 240,
+    "rule": "animations must be snappy and clinical; never bouncy, cartoonish, or elastic."
+  },
+  "hardware": {
+    "fasteners": {
+      "type": "torx t5 / t6",
+      "material": "stainless steel",
+      "finish": "black oxide",
+      "style": "exposed, flush-seated, serviceable"
+    },
+    "chassis_finish": {
+      "material": "6061-t6 aluminum",
+      "process": "micro bead-blast #180, type III hardcoat anodizing",
+      "color": "matte black (MIL-A-8625)"
+    },
+    "pcb": {
+      "solder_mask": "deep matte black (#0A0A0A)",
+      "silkscreen": "bone chalk (#E2E4DE), minimum line width 0.15mm",
+      "pads": "enig (electroless nickel immersion gold)"
+    },
+    "optics": {
+      "led_aperture_diameter_mm": 0.6,
+      "style": "sub-surface micro-hole pinhole light guides with matte diffusion"
+    }
+  },
+  "prohibited_elements": [
+    "mixing uppercase and lowercase within the same word (binary case law violation)",
+    "capitalizing brand name with mixed case (must be strictly all lowercase 'algorhythmia')",
+    "marketing buzzwords: revolutionary, game-changing, insane drop, magic, swag, vibes",
+    "cheesy goth tropes: skulls, medieval blackletter fonts, spikes, grunge textures",
+    "rainbow rgb lighting or disco led color cycling",
+    "curved blobby organic casework or glossy plastics",
+    "drop shadows with blur radius > 4px",
+    "bouncy elastic spring ui animations"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {"major": 3, "minor": 22, "patch": 0},
+  "configurePresets": [
+    {"name": "base", "hidden": true, "binaryDir": "${sourceDir}/build/${presetName}", "cacheVariables": {"BUILD_TESTING": "ON", "ALGORHYTHMIA_BUILD_BENCHMARKS": "ON"}},
+    {"name": "debug", "inherits": "base", "cacheVariables": {"CMAKE_BUILD_TYPE": "Debug"}},
+    {"name": "release", "inherits": "base", "cacheVariables": {"CMAKE_BUILD_TYPE": "Release"}},
+    {"name": "sanitize", "inherits": "debug", "cacheVariables": {"ALGORHYTHMIA_ENABLE_SANITIZERS": "ON"}},
+    {"name": "desktop", "inherits": "release", "cacheVariables": {"ALGORHYTHMIA_BUILD_DESKTOP": "ON"}}
+  ],
+  "buildPresets": [{"name": "debug", "configurePreset": "debug"}, {"name": "release", "configurePreset": "release", "configuration": "Release"}, {"name": "sanitize", "configurePreset": "sanitize"}, {"name": "desktop", "configurePreset": "desktop", "configuration": "Release"}],
+  "testPresets": [{"name": "debug", "configurePreset": "debug", "output": {"outputOnFailure": true}}, {"name": "release", "configurePreset": "release", "configuration": "Release", "output": {"outputOnFailure": true}}, {"name": "sanitize", "configurePreset": "sanitize", "output": {"outputOnFailure": true}}, {"name": "desktop", "configurePreset": "desktop", "configuration": "Release", "output": {"outputOnFailure": true}}]
+}

@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "selection": "owner-selected",
+  "format": "ZIP",
+  "contents": [
+    "Windows x64 VST3 bundle",
+    "selected first-party/dependency notices and source",
+    "PowerShell install, rollback, uninstall and test-fixture initialization scripts"
+  ],
+  "signing": "Authenticode-sign plugin using existing authorized credentials when available; verify trusted signer and RFC3161 timestamp before final-byte validators",
+  "installation_boundary": "Sprint 06 development scripts require an initialized disposable temporary test fixture and closed hosts; no personal plugin directories or Program Files writes",
+  "powershell_minimum": "5.1",
+  "qualification": "PARTIAL; PowerShell runtime, Windows executable/signature and clean-system/host lifecycle execution unavailable locally",
+  "script_directory": "windows/"
+}

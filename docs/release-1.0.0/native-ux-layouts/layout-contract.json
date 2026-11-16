@@ -1,0 +1,247 @@
+{
+  "base": [
+    640,
+    440
+  ],
+  "scales": [
+    1,
+    1.25,
+    1.5,
+    2
+  ],
+  "geometry": {
+    "details": [
+      540,
+      16,
+      76,
+      28
+    ],
+    "preset": [
+      24,
+      56,
+      240,
+      28
+    ],
+    "undo": [
+      276,
+      56,
+      60,
+      28
+    ],
+    "redo": [
+      344,
+      56,
+      60,
+      28
+    ],
+    "scale": [
+      520,
+      56,
+      96,
+      28
+    ],
+    "domains": [
+      144,
+      100,
+      352,
+      28
+    ],
+    "flux": [
+      84,
+      158,
+      128,
+      128
+    ],
+    "bias": [
+      428,
+      158,
+      128,
+      128
+    ],
+    "flux-entry": [
+      84,
+      288,
+      128,
+      28
+    ],
+    "bias-entry": [
+      428,
+      288,
+      128,
+      28
+    ],
+    "drive": [
+      48,
+      320,
+      128,
+      28
+    ],
+    "brake": [
+      256,
+      320,
+      128,
+      28
+    ],
+    "state": [
+      464,
+      320,
+      128,
+      28
+    ],
+    "output-slider": [
+      80,
+      364,
+      212,
+      28
+    ],
+    "output-entry": [
+      300,
+      364,
+      80,
+      28
+    ],
+    "bypass": [
+      392,
+      364,
+      104,
+      28
+    ],
+    "reset": [
+      512,
+      364,
+      104,
+      28
+    ]
+  },
+  "scenes": [
+    {
+      "slug": "01-session",
+      "domain": 0,
+      "run": false,
+      "state": false,
+      "brake": false,
+      "bypass": false,
+      "missing": true,
+      "clip": false,
+      "modified": false,
+      "rejected": false,
+      "word": 0,
+      "preset": "initial / paused",
+      "flux": "4250 TICKS/S",
+      "bias": "50.0% MACRO",
+      "f": 0.5,
+      "b": 0.5,
+      "context": "morph / azimuth / drive",
+      "health": "TELEMETRY LIVE",
+      "focus": "preset",
+      "notes": [
+        [
+          "SESSION STRIP",
+          "saved factory name; * reserved for modified targets",
+          "UNDO / REDO are parameter-only; scale is presentation"
+        ],
+        [
+          "TWIN-SPOOL FACE",
+          "equal FLUX / BIAS controls; no rotating playhead",
+          "domain selection is separate from shared binary STATE"
+        ],
+        [
+          "SIGNAL STRIP",
+          "known disabled bus: NO INPUT is normal in generation",
+          "PAUSED does not promise silence; no missing-input modal"
+        ],
+        [
+          "DESIGN FIXTURE",
+          "640 x 440 logical units at 100%; no font files bundled",
+          "focus shown on preset; values are authored scenario data"
+        ]
+      ]
+    },
+    {
+      "slug": "02-performance",
+      "domain": 1,
+      "run": true,
+      "state": true,
+      "brake": true,
+      "bypass": false,
+      "missing": false,
+      "clip": false,
+      "modified": true,
+      "rejected": true,
+      "word": 110,
+      "preset": "02 / cellular walls",
+      "flux": "165.0 BPM",
+      "bias": "62.5% MACRO",
+      "f": 0.5,
+      "b": 0.625,
+      "context": "rule 110 / coupled FM",
+      "health": "DISPLAY DROPS 12",
+      "focus": "flux",
+      "notes": [
+        [
+          "SAVED TARGETS",
+          "domain 01, DRIVE RUN, STATE 1, BIAS macro 62.5%",
+          "brake is transient; it does not enter the saved schema"
+        ],
+        [
+          "EIGHT TRUE ELEMENTS",
+          "01101110 is the rule byte; left-to-right b7 to b0",
+          "register uses actual DSP domain; preview is explicit only"
+        ],
+        [
+          "BRAKE + REJECTION",
+          "DSP BRAKE does not erase RUN or REJECTED count",
+          "valid edit or reset recovers; no retry of rejected targets"
+        ],
+        [
+          "MODIFIED + DISPLAY LOSS",
+          "* means changed host targets, not unsaved tape",
+          "display drops are independent of rejected audio events"
+        ]
+      ]
+    },
+    {
+      "slug": "03-signal",
+      "domain": 2,
+      "run": true,
+      "state": true,
+      "brake": true,
+      "bypass": true,
+      "missing": true,
+      "clip": true,
+      "modified": true,
+      "rejected": true,
+      "word": 60,
+      "preset": "03 / forward tape",
+      "flux": "1.00 X",
+      "bias": "20.0% MACRO",
+      "f": 0.75,
+      "b": 0.2,
+      "context": "wear / recursion macro",
+      "health": "TELEMETRY LIVE",
+      "focus": "bypass",
+      "notes": [
+        [
+          "SIMULTANEOUS CONDITIONS",
+          "RUN + STATE 1 + BRAKE + BYPASS + NO INPUT",
+          "LIMITING + REJECTED + modified * remain independent"
+        ],
+        [
+          "TRANSFORM TRUTH",
+          "1.00 X is saved base speed; STATE 1 reverses target",
+          "BRAKE freezes writing; head can keep reading captured tape"
+        ],
+        [
+          "SIGNAL AND RECOVERY",
+          "BYPASS DRY is untrimmed; lower upstream for dry clips",
+          "LIMITING may be a 1 s held flag; no automatic reset"
+        ],
+        [
+          "OPTIONAL METERS",
+          "DETAILS may show real separate IN/OUT L/R peaks",
+          "central 4+4 tape-flux word is not calibrated output DBFS"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "dependencies": {
+    "doctest": {
+      "version": "2.4.12",
+      "revision": "1da23a3e8119ec5cce4f9388e91b065e20bf06f5",
+      "url": "https://codeload.github.com/doctest/doctest/tar.gz/1da23a3e8119ec5cce4f9388e91b065e20bf06f5",
+      "archive_sha256": "3ffeeefdd63fa4978a9a835b6007dcbe8d28de45411665285516b3490ca253df",
+      "tree_sha256": "5778f85f9828756663bd8271eb7462ef9390f72a1cb92f5c1c50fff8d20fb90a",
+      "file_count": 270
+    },
+    "juce": {
+      "version": "8.0.12",
+      "revision": "29396c22c93392d6738e021b83196283d6e4d850",
+      "url": "https://codeload.github.com/juce-framework/JUCE/tar.gz/29396c22c93392d6738e021b83196283d6e4d850",
+      "archive_sha256": "97cc01e0fe15278f6edadc895a3cf0aac2fd98bcd023823384d5ca7025beb91c",
+      "tree_sha256": "34954713e005f05801972439db07a78356b36bd421b51f2957b3e38605022f85",
+      "file_count": 4377
+    }
+  }
+}

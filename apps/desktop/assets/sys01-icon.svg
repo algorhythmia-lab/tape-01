@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <title>SYS 01 cassette</title>
+  <!-- Preserve the full canvas when JUCE measures drawable bounds. -->
+  <rect width="1024" height="1024" fill="#08090A" fill-opacity="0"/>
+  <g transform="scale(8)">
+  <rect x="8" y="8" width="112" height="112" rx="24" fill="#08090A"/>
+  <rect x="18" y="34" width="92" height="60" rx="5" fill="#121417" stroke="#E2E4DE" stroke-width="3.5"/>
+  <g fill="none" stroke="#E2E4DE" stroke-width="3.5">
+    <circle cx="41" cy="60" r="10"/>
+    <circle cx="87" cy="60" r="10"/>
+    <path d="m36 94 5-15h46l5 15" stroke-linejoin="round"/>
+  </g>
+  <path d="M58 57h2v6h-2zm5 0h2v6h-2zm5 0h2v6h-2z" fill="#E2E4DE"/>
+  </g>
+</svg>

@@ -1,0 +1,43 @@
+# Local builds, generated DSP renders, and coverage output.
+build*/
+/apps/firmware_stubbuild*/
+/apps/max_for_livebuild*/
+CMakeUserPresets.json
+compile_commands.json
+*.wav
+# Three source-hashed public listening records are intentional publication assets.
+!/algorhythmia.com/public/media/tape-01/bytebeat.wav
+!/algorhythmia.com/public/media/tape-01/cellular.wav
+!/algorhythmia.com/public/media/tape-01/transform.wav
+*.gcda
+*.gcno
+*.profraw
+*.profdata
+coverage/
+
+# Local SDKs and packaging artifacts.
+_deps/
+vendor/
+dist/
+*.uf2
+*.elf
+*.map
+*.dSYM/
+
+# Editor / operating-system files.
+.DS_Store
+.idea/
+.vscode/
+__pycache__/
+*.pyc
+*.swp
+
+# Generated frontend dependencies and production output.
+/algorhythmia.com/node_modules/
+/algorhythmia.comdist/
+
+# Local browser/performance results and provider linkage.
+/algorhythmia.com/qa-results/
+/algorhythmia.com/.vercel/
+/algorhythmia.com/.env*
+!/algorhythmia.com/.env.example

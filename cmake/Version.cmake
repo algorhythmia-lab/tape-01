@@ -1,0 +1,5 @@
+include_guard(GLOBAL)
+file(STRINGS "${CMAKE_CURRENT_LIST_DIR}/../VERSION" ALGORHYTHMIA_VERSION LIMIT_COUNT 1)
+if(NOT ALGORHYTHMIA_VERSION MATCHES "^[0-9]+\\.[0-9]+\\.[0-9]+$")
+    message(FATAL_ERROR "VERSION must be a semantic version")
+endif()

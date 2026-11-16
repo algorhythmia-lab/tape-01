@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "status": "production-release-blocked; public beta authorized",
+  "publication": "Owner requested public upload and first release on 2026-11-16. v1.0.0-beta.1 is authorized for testing. Historical Sprint 06 publication restrictions are superseded for this beta; production qualification remains incomplete.",
+  "rights": "AGPL-3.0-only selected; first-party provenance, compiled transitive notices and complete corresponding-source packet require owner review",
+  "macOS": "No Developer ID Application/Installer identities available; two unrelated self-signed identities were visible only outside the sandbox. Need authorized Developer ID Application and Installer certificates/private keys, team identity and notarytool Keychain profile; then final-byte validators and clean-machine cycles",
+  "Windows": "Owner selected ZIP containing VST3, notices/source and PowerShell install/rollback scripts; Authenticode-sign plugin when authorized credentials are available. Windows runner, signing identity/provider, approved RFC3161 endpoint and clean-system execution remain prerequisites. Fixture-only scripts avoid personal plugin directories.",
+  "machines": "Clean macOS Intel/arm64 target OS fixtures and Windows 10/11 x64 fixtures, authorized disposable plugin locations, installed owner-approved Ableton builds and prior signed version for upgrade/rollback",
+  "manual": "Three install/scan/save/reopen/upgrade/uninstall/rollback cycles per supported package; host builds/installer hashes, OS patch, CPU, driver/rate/buffer, project and PCM evidence; no personal plugin directory changes",
+  "other_release_gates": "All earlier realtime, AU offset, sound/DC, accessibility, performance and musician qualification blockers remain open"
+}

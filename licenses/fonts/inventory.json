@@ -1,0 +1,53 @@
+{
+  "license": "SIL Open Font License 1.1",
+  "fonts": [
+    {
+      "family": "Barlow Condensed",
+      "style": "Regular",
+      "version": "Version 1.408",
+      "copyright": "Copyright 2017 The Barlow Project Authors (https://github.com/jpt/barlow)",
+      "license": null,
+      "license_url": "http://scripts.sil.org/OFL",
+      "asset": "licenses/fonts/barlow-condensed.ttf",
+      "sha256": "72c8f13a5ee5de45d1f1d01cad15f64ff728256ea404ac638407eafdfbe79bc0",
+      "notice": "licenses/fonts/barlow-condensed-OFL.txt",
+      "notice_sha256": "18aabf190848725e2576eefb5c29ba06aac1029d02132252a7f312eac2e50cf3",
+      "source": "algorhythmia.com/public/fonts/barlow-condensed-latin-400-normal.woff2",
+      "source_sha256": "7fff1bb22e5773f0d1a55d3093068b6dac4539e8bb3ac23fb9f0a729df2c7bb4",
+      "package_version": "5.2.7",
+      "conversion": "WOFF2 decoded to sfnt/TrueType using fontTools 4.68.0; outlines and names unchanged; original timestamps retained."
+    },
+    {
+      "family": "JetBrains Mono",
+      "style": "Regular",
+      "version": "Version 2.211",
+      "copyright": "Copyright 2020 The JetBrains Mono Project Authors (https://github.com/JetBrains/JetBrainsMono)",
+      "license": null,
+      "license_url": "https://scripts.sil.org/OFL",
+      "asset": "licenses/fonts/jetbrains-mono.ttf",
+      "sha256": "2908b44c040565cac89fb97eee1b2d1ca27224d0394c8a1450440ad7ecd52522",
+      "notice": "licenses/fonts/jetbrains-mono-OFL.txt",
+      "notice_sha256": "403581b69dac5cff4079205e01c6b467e56af449ecbd7247693ddb1baafa005b",
+      "source": "algorhythmia.com/public/fonts/jetbrains-mono-latin-400-normal.woff2",
+      "source_sha256": "14425ba9c695763c1547f48a206b7aa60350a33ae23de09f0407877f3fcd89eb",
+      "package_version": "5.2.8",
+      "conversion": "WOFF2 decoded to sfnt/TrueType using fontTools 4.68.0; outlines and names unchanged; original timestamps retained."
+    },
+    {
+      "family": "Inter",
+      "style": "Regular",
+      "version": "Version 4.001;git-66647c0bb",
+      "copyright": "Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter)",
+      "license": null,
+      "license_url": "https://openfontlicense.org",
+      "asset": "licenses/fonts/inter.ttf",
+      "sha256": "03693cc5689d8c89a20ae55fe945fe59884eec8ad7d7dabb4761e066e88f49ff",
+      "notice": "licenses/fonts/inter-OFL.txt",
+      "notice_sha256": "3b0a5fca3d17942cde889069889dedbbbd075e9b599968c82a95f4d944e9b345",
+      "source": "algorhythmia.com/public/fonts/inter-latin-400-normal.woff2",
+      "source_sha256": "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+      "package_version": "5.2.8",
+      "conversion": "WOFF2 decoded to sfnt/TrueType using fontTools 4.68.0; outlines and names unchanged; original timestamps retained."
+    }
+  ]
+}

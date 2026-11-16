@@ -1,0 +1,38 @@
+SYS 01 — source and dependency notices (public beta)
+
+The rights owner selected GNU Affero General Public License version 3 only
+(AGPL-3.0-only) for owner-controlled SYS 01 first-party source on 2026-10-14.
+The unmodified license text is in LICENSE, retrieved from
+https://www.gnu.org/licenses/agpl-3.0.txt (SHA-256 recorded in Sprint 06).
+No later-version grant is inferred. The existing first-party file provenance,
+brand/design rights and corresponding-source audit remain PENDING. This notice
+records the owner's choice. Public testing distribution was requested by the
+owner on 2026-11-16. The full product remains free of charge.
+
+JUCE 8.0.12, revision 29396c22c93392d6738e021b83196283d6e4d850:
+https://github.com/juce-framework/JUCE/tree/29396c22c93392d6738e021b83196283d6e4d850
+The upstream framework offers AGPLv3 or commercial terms. This packet prepares
+the owner-selected AGPLv3 route. No commercial JUCE rights are asserted.
+Build-only modifications to the VST3/AU wrappers retain upstream headers and are
+reproduced by scripts/native_vst3_adapter.py and native_au_adapter.py. See ADR 0003.
+
+licenses/JUCE retains unmodified, verified upstream notices for the framework,
+VST3 SDK (MIT), AudioUnitSDK (Apache 2.0), HarfBuzz, SheenBidi, libpng, JPEG,
+zlib, FLAC and Ogg Vorbis. licenses/inventory.json binds upstream paths/revisions
+and exact notice bytes. This selected inventory is not a completed transitive
+license or compiled-code applicability audit. Other JUCE modules/optional SDKs
+must be reviewed if enabled; no AAX, ASIO, LV2, Android, Max or Pico distribution
+is qualified by this packet. Pinned dependency source is retrieved as declared
+in cmake/dependencies.lock.json; the public beta source archive includes the full pinned JUCE and doctest
+trees and build instructions. Broader provenance review remains open.
+
+Doctest 2.4.12, revision 1da23a3e8119ec5cce4f9388e91b065e20bf06f5:
+https://github.com/doctest/doctest/tree/1da23a3e8119ec5cce4f9388e91b065e20bf06f5
+MIT, test-only; unmodified text in licenses/doctest-LICENSE.txt.
+
+The native editor embeds the same open-source typefaces as algorhythmia.com:
+Barlow Condensed 1.408, JetBrains Mono 2.211 and Inter 4.001. Each is distributed
+under the SIL Open Font License 1.1. licenses/fonts contains the retained OFL
+texts, font copyright/name metadata, original webpage WOFF2 hashes and decoded
+TrueType asset hashes. Decoding changes the container, not the outlines or names.
+HarfBuzz text-shaping code has its own retained notice. No system fonts are copied.

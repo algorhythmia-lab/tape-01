@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "product": "SYS 01",
+  "tag": "v1.0.0-beta.1",
+  "version": "1.0.0",
+  "channel": "public-beta",
+  "date": "2026-11-16",
+  "repository": "https://github.com/algorhythmia-lab/tape-01",
+  "platform": "macOS",
+  "minimum_macos": "12.0",
+  "architectures": ["arm64", "x86_64"],
+  "formats": ["Standalone", "VST3", "AU"],
+  "signing": "ad-hoc integrity signatures; no Developer ID or Apple notarization",
+  "qualification": "first public testing release; production qualification remains incomplete",
+  "known_limitations": [
+    "Whole-wrapper realtime and lifecycle ownership work remains open; audio dropouts or host-specific behavior may occur.",
+    "An extreme transform setting has a recorded DC-offset issue; keep monitoring low and avoid high output gain.",
+    "State recall stores parameters and restarts phases and empty tape; captured audio is not saved.",
+    "Native Intel hardware, older macOS versions, accessibility, long soaks and broad DAW compatibility remain unqualified.",
+    "Windows, Max for Live and hardware downloads are not included in this release."
+  ]
+}

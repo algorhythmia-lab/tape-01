@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "status": "verified selected notices; transitive/corresponding-source rights review pending",
+  "verification": "Compared with full dependency tree hashes from the pinned public archives",
+  "first_party_terms": "AGPL-3.0-only, owner-selected 2026-10-14; file provenance audit pending",
+  "fonts": "Barlow Condensed, JetBrains Mono and Inter, SIL OFL 1.1; exact assets, metadata, source hashes and retained notices in licenses/fonts/inventory.json",
+  "notices": [
+    {
+      "dependency": "juce",
+      "revision": "29396c22c93392d6738e021b83196283d6e4d850",
+      "upstream_path": "LICENSE.md",
+      "notice": "licenses/JUCE/LICENSE.md",
+      "sha256": "2633539bb26d244f0966fbc4df59400ea99bdf575fa96291851c1c3ff3456146"
+    },
+    {
+      "dependency": "juce",
+      "revision": "29396c22c93392d6738e021b83196283d6e4d850",
+      "upstream_path": "modules/juce_audio_plugin_client/AU/AudioUnitSDK/LICENSE.txt",
+      "notice": "licenses/JUCE/modules/juce_audio_plugin_client/AU/AudioUnitSDK/LICENSE.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "dependency": "juce",
+      "revision": "29396c22c93392d6738e021b83196283d6e4d850",
+      "upstream_path": "modules/juce_audio_processors_headless/format_types/VST3_SDK/LICENSE.txt",
+      "notice": "licenses/JUCE/modules/juce_audio_processors_headless/format_types/VST3_SDK/LICENSE.txt",
+      "sha256": "d6115b263faa1cdf8c7372d70889c833dde1cec95252e7ee93e4f7d599ec96ca"
+    },
+    {
+      "dependency": "juce",
+      "revision": "29396c22c93392d6738e021b83196283d6e4d850",
+      "upstream_path": "modules/juce_graphics/fonts/harfbuzz/COPYING",
+      "notice": "licenses/JUCE/modules/juce_graphics/fonts/harfbuzz/COPYING",
+      "sha256": "ba8f810f2455c2f08e2d56bb49b72f37fcf68f1f4fade38977cfd7372050ad64"
+    },
+    {
+      "dependency": "juce",
+      "revision": "29396c22c93392d6738e021b83196283d6e4d850",
+      "upstream_path": "modules/juce_graphics/unicode/sheenbidi/LICENSE",
+      "notice": "licenses/JUCE/modules/juce_graphics/unicode/sheenbidi/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "dependency": "juce",
+      "revision": "29396c22c93392d6738e021b83196283d6e4d850",
+      "upstream_path": "modules/juce_graphics/image_formats/pnglib/LICENSE",
+      "notice": "licenses/JUCE/modules/juce_graphics/image_formats/pnglib/LICENSE",
+      "sha256": "bf5e22b9dce8464064ae17a48ea1133c3369ac9e1d80ef9e320e5219aa14ea9b"
+    },
+    {
+      "dependency": "juce",
+      "revision": "29396c22c93392d6738e021b83196283d6e4d850",
+      "upstream_path": "modules/juce_graphics/image_formats/jpglib/README",
+      "notice": "licenses/JUCE/modules/juce_graphics/image_formats/jpglib/README",
+      "sha256": "8802105e93b079f950844e412daab05156b5ef30acc6cbd0a59a287e6cd6cb7d"
+    },
+    {
+      "dependency": "juce",
+      "revision": "29396c22c93392d6738e021b83196283d6e4d850",
+      "upstream_path": "modules/juce_core/zip/zlib/README",
+      "notice": "licenses/JUCE/modules/juce_core/zip/zlib/README",
+      "sha256": "365db9b693fda6c66ddd97d81ae3eb17be32c890909553973a77439d85900494"
+    },
+    {
+      "dependency": "juce",
+      "revision": "29396c22c93392d6738e021b83196283d6e4d850",
+      "upstream_path": "modules/juce_audio_formats/codecs/flac/Flac Licence.txt",
+      "notice": "licenses/JUCE/modules/juce_audio_formats/codecs/flac/Flac Licence.txt",
+      "sha256": "123926094aa97c30e346c23a12a453b7063c56e6c414e342dd5ae0fea13bd77d"
+    },
+    {
+      "dependency": "juce",
+      "revision": "29396c22c93392d6738e021b83196283d6e4d850",
+      "upstream_path": "modules/juce_audio_formats/codecs/oggvorbis/Ogg Vorbis Licence.txt",
+      "notice": "licenses/JUCE/modules/juce_audio_formats/codecs/oggvorbis/Ogg Vorbis Licence.txt",
+      "sha256": "62d5ce5c59484dc99e462ec8f815bfc76f64a2e4759500c14beaf3772a7d1181"
+    },
+    {
+      "dependency": "doctest",
+      "revision": "1da23a3e8119ec5cce4f9388e91b065e20bf06f5",
+      "upstream_path": "LICENSE.txt",
+      "notice": "licenses/doctest-LICENSE.txt",
+      "sha256": "0fe0b331fa1513dcce8604ff1fa925f32d1cea17d8aeb1c2471fad40d291adc5",
+      "scope": "test-only"
+    }
+  ]
+}

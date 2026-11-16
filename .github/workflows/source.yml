@@ -1,0 +1,154 @@
+name: Standalone SYS 01 validation
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  core:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, macos-14, windows-2022]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Configure
+        run: cmake -S . -B build-ci -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON -DALGORHYTHMIA_BUILD_BENCHMARKS=ON
+      - name: Build
+        run: cmake --build build-ci --config Release --parallel 4
+      - name: Test
+        run: ctest --test-dir build-ci -C Release --output-on-failure --output-junit results.xml
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
+        with:
+          name: core-${{ matrix.os }}
+          path: build-ci/Testing/
+  sanitizers:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, macos-14]
+    runs-on: ${{ matrix.os }}
+    env:
+      CC: clang
+      CXX: clang++
+      UBSAN_OPTIONS: print_stacktrace=1:halt_on_error=1
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - run: cmake -S . -B build-asan -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON -DALGORHYTHMIA_ENABLE_SANITIZERS=ON -DALGORHYTHMIA_BUILD_BENCHMARKS=ON
+      - run: cmake --build build-asan --parallel 4
+      - run: ctest --test-dir build-asan --output-on-failure
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: asan-${{ matrix.os }}
+          path: build-asan/Testing/
+  race-check:
+    runs-on: ubuntu-24.04
+    env:
+      CC: clang
+      CXX: clang++
+      TSAN_OPTIONS: halt_on_error=1
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - run: cmake -S . -B build-tsan -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON -DALGORHYTHMIA_ENABLE_TSAN=ON
+      - run: cmake --build build-tsan --parallel 4
+      - run: ctest --test-dir build-tsan -R '(dsp_realtime_tests|host_contract)' --output-on-failure
+  desktop:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-14, windows-2022]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - run: cmake -S . -B build-native -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON -DALGORHYTHMIA_BUILD_DESKTOP=ON
+      - run: cmake --build build-native --config Release --parallel 4
+      - run: ctest --test-dir build-native -C Release --output-on-failure
+      - name: Bind native conformance and bundle seals to exact artifacts
+        run: python3 scripts/ci_native_evidence.py --build build-native --reports build-native/bound-reports
+      - name: Capture source, dependencies and toolchain after build
+        run: cmake --build build-native --config Release --target candidate-provenance
+      - name: Analyze first-party native translation units
+        if: runner.os == 'macOS'
+        run: python3 scripts/run_clang_analyzer.py build-native/compile_commands.json
+      - name: Validate macOS VST3 with pinned pluginval
+        if: runner.os == 'macOS'
+        run: |
+          curl -L --fail https://github.com/Tracktion/pluginval/releases/download/v1.0.4/pluginval_macOS.zip -o pluginval.zip
+          echo "3c4c533bda0c5059eea3ddaea752d757ee2025041f0f47e6bcb0e87f6082b29f  pluginval.zip" | shasum -a 256 -c -
+          unzip -q pluginval.zip -d pluginval
+          python3 scripts/validate_artifact.py --artifact "build-native/apps/desktop/sys01_artefacts/Release/VST3/SYS 01.vst3" --output build-native/bound-reports/pluginval.json --kind pluginval-level10-headless --success-pattern SUCCESS -- pluginval/pluginval.app/Contents/MacOS/pluginval --strictness-level 10 --skip-gui-tests --random-seed 1012 --validate '{artifact}'
+      - name: Strict auval on disposable runner only
+        if: runner.os == 'macOS'
+        run: python3 scripts/validate_artifact.py --artifact "build-native/apps/desktop/sys01_artefacts/Release/AU/SYS 01.component" --output build-native/bound-reports/auval.json --kind auval-strict --success-pattern 'AU VALIDATION SUCCEEDED' -- python3 scripts/ci_auval.py '{artifact}'
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: development-native-${{ matrix.os }}
+          path: |
+            build-native/bound-reports/
+            build-native/build-provenance.json
+            build-native/dependencies/
+            build-native/Testing/
+            build-native/apps/desktop/sys01_artefacts/
+            release/manifest.json
+            NOTICE
+  native-race-check:
+    runs-on: macos-14
+    env:
+      TSAN_OPTIONS: halt_on_error=1
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - run: cmake -S . -B build-native-tsan -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON -DALGORHYTHMIA_BUILD_DESKTOP=ON -DALGORHYTHMIA_ENABLE_TSAN=ON
+      - run: cmake --build build-native-tsan --target sys01_adapter_tests --parallel 4
+      - run: ctest --test-dir build-native-tsan -R '^desktop_adapter$' --output-on-failure
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: native-threadsanitizer
+          path: build-native-tsan/Testing/
+  source-export:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - run: python3 scripts/package_source.py --output source.tar.gz
+      - run: mkdir extracted && tar -xzf source.tar.gz -C extracted --strip-components=1
+      - run: cd extracted && sha256sum -c SOURCE_MANIFEST.sha256
+      - run: cmake -S extracted -B export-build -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON
+      - run: cmake --build export-build --parallel 4
+      - run: ctest --test-dir export-build --output-on-failure
+  code-quality:
+    runs-on: ubuntu-24.04
+    env:
+      CC: clang-18
+      CXX: clang++-18
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - run: sudo apt-get update && sudo apt-get install --yes clang-18 clang-format-18 clang-tidy-18
+      - run: python3 scripts/check_format.py --check --clang-format clang-format-18
+      - run: cmake -S . -B build-tidy -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON -DALGORHYTHMIA_ENABLE_CLANG_TIDY=ON
+      - run: cmake --build build-tidy --parallel 4
+
+  native-address-undefined:
+    runs-on: macos-14
+    env:
+      UBSAN_OPTIONS: print_stacktrace=1:halt_on_error=1
+      ASAN_OPTIONS: halt_on_error=1
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - run: cmake -S . -B build-native-asan -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON -DALGORHYTHMIA_BUILD_DESKTOP=ON -DALGORHYTHMIA_ENABLE_SANITIZERS=ON
+      - run: cmake --build build-native-asan --parallel 4
+      - run: ctest --test-dir build-native-asan -E native_editor --output-on-failure
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: native-address-undefined
+          path: build-native-asan/Testing/
+
+  windows-install-script-controls:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Parse and exercise synthetic fixture lifecycle and failure controls
+        shell: powershell
+        run: powershell.exe -NoProfile -NonInteractive -File scripts/windows/Test-Sys01Install.ps1

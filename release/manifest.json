@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "product": "SYS 01",
+  "version_source": "../VERSION",
+  "status": "public-beta-production-unqualified",
+  "bundle_id": "org.algorhythmia.sys01",
+  "manufacturer_code": "Algr",
+  "plugin_code": "Sys1",
+  "distribution": "full release at no charge",
+  "planned_formats": {
+    "macOS": [
+      "VST3",
+      "AU"
+    ],
+    "Windows": [
+      "VST3"
+    ]
+  },
+  "validated_hosts": [],
+  "validated_platforms": [],
+  "state_schema": 1,
+  "recall": "parameters; deterministic phase and empty tape",
+  "automation": {
+    "MIDI": "sample-positioned",
+    "VST3": "every point and sample offset; step targets plus 10 ms DSP smoothing; loaded-binary fixture",
+    "AU": "Sprint 09 bounded ordinary/scheduled immediate steps plus lifecycle target retention pass 1251 local arm64 comparisons; publication-generation ownership remains unresolved (S09-OWN-01); MIDI offsets pass; no timing waiver"
+  },
+  "dependencies": {
+    "JUCE": "29396c22c93392d6738e021b83196283d6e4d850",
+    "doctest": "1da23a3e8119ec5cce4f9388e91b065e20bf06f5"
+  },
+  "release_gates": {
+    "rights_review": "PARTIAL Sprint 06: owner-selected AGPL-3.0-only text and selected pinned dependency notices retained; first-party provenance, transitive compiled-code and corresponding-source review pending",
+    "sample_offset_host_automation": "PARTIAL Sprint 09: rebuilt arm64 VST3/adapter/recall pass Release, ASan/UBSan and TSan; bounded AU offsets/lifecycle target retention pass 1251 comparisons; S09-LIFE-01 repaired with retained before failure; publication ownership remains open (S09-OWN-01), as do whole-format realtime, Windows/native Intel/DAW automation; no AU waiver",
+    "format_validators": "PARTIAL Sprint 02: final sealed VST3 Steinberg 47/47 on macOS arm64 and x86_64 via Rosetta; pinned pluginval level 10/seed 1012 arm64; strict Apple auval final arm64 AU passed; four local development seals verified; x86_64 auval/native Intel/Windows pending",
+    "DAW_qualification": "PARTIAL Sprint 02: Ableton Live 12.4.6 arm64 AU/VST3 scan/load, disabled-hardware-input generation, stereo transform, bypass, bounce and reopen exercised on exact recorded hashes; VST3 recovered/reopened PCM identical. Routed timed CC delivery and DAW offset proof pending; final thin AU hash needs host rerun. REAPER skipped per owner; no other testing apps",
+    "accessibility": "pending",
+    "musician_beta": "pending",
+    "performance_soak": "pending",
+    "signed_clean_machine_install": "BLOCKED Sprint 06: Developer ID PKG/notary and owner-selected Windows Authenticode/ZIP and fixture-only PowerShell install/rollback preparation implemented; no Developer ID identities/Windows fixture available; clean install, scan, upgrade, uninstall and rollback cycles unperformed",
+    "tagged_source": "reviewed development baseline; approved release tag pending",
+    "whole_format_realtime": "PARTIAL Sprint 01: bounded VST3/AU MIDI and immutable telemetry; wrapper mutexes observed, editor-open deadline miss observed locally; lifecycle/listener replacement and minimum-machine profiling pending"
+  },
+  "license": {
+    "first_party_selected": "AGPL-3.0-only",
+    "provenance_review": "pending",
+    "notices": "../licenses/inventory.json"
+  },
+  "windows_packaging_route": "ZIP with VST3, notices/source and PowerShell install/rollback scripts; Authenticode when authorized credentials are available; clean-system qualification pending",
+  "public_release": {
+    "tag": "v1.0.0-beta.1",
+    "date": "2026-11-16",
+    "scope": "public testing; no production qualification waiver",
+    "details": "public-beta.json"
+  }
+}

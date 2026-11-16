@@ -1,0 +1,24 @@
+name: Report a SYS 01 problem
+description: Help improve the public beta.
+body:
+  - type: input
+    id: release
+    attributes:
+      label: Release
+      placeholder: v1.0.0-beta.1
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Your setup
+      description: Mac/CPU, macOS version, standalone or DAW/version/format, sample rate and buffer size.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: What happened?
+      description: Steps to reproduce, routing, expected behavior and actual behavior. Do not include private session audio or personal information.
+    validations:
+      required: true
